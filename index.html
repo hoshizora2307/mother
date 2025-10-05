@@ -4,116 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>お母さんへ</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap');
-
-        body {
-            background-color: #fce4ec; /* 温かいピンク */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: 'Kosugi Maru', sans-serif;
-            color: #d84315; /* 暖色系の文字色 */
-            text-align: center;
-            overflow: hidden;
-        }
-
-        .container {
-            padding: 20px;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.7);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .photo-frame {
-            position: relative;
-            width: 250px;
-            height: 250px;
-            border: 10px solid #ffcc80; /* 黄色のフレーム */
-            border-radius: 50%;
-            overflow: hidden;
-            margin-bottom: 20px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-            animation: pulse 2s infinite ease-in-out;
-        }
-
-        .photo-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: 50% 20%;
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        h1 {
-            font-size: 2.5em;
-            margin: 10px 0;
-            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
-        }
-
-        .heart-button {
-            background-color: #ff69b4; /* ホットピンク */
-            border: none;
-            color: white;
-            padding: 15px 30px;
-            font-size: 1.2em;
-            border-radius: 30px;
-            cursor: pointer;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-            transition: transform 0.2s, background-color 0.2s;
-        }
-
-        .heart-button:active {
-            transform: scale(0.95);
-            background-color: #ff4d99;
-        }
-
-        .flying-heart {
-            position: absolute;
-            font-size: 3em;
-            color: #ff69b4;
-            pointer-events: none;
-            animation: fly 2s forwards;
-            z-index: 100;
-        }
-
-        @keyframes fly {
-            0% {
-                transform: translateY(0) scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-200px) scale(0);
-                opacity: 0;
-            }
-        }
-
-        .credits {
-            margin-top: 20px;
-            font-size: 0.8em;
-            color: #757575;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container">
         <div class="photo-frame">
-            <img id="mother-photo" src="mother.jpg" alt="お母さんの写真">
+            <img id="mother-photo" src="mother.png" alt="お母さんの写真">
         </div>
         <h1>長生きしてね！</h1>
         <button id="heart-button" class="heart-button">愛を贈る</button>
@@ -125,32 +22,6 @@
         <p>監督：高瀬 敏行</p>
     </div>
 
-    <script>
-        const heartButton = document.getElementById('heart-button');
-
-        heartButton.addEventListener('click', () => {
-            for (let i = 0; i < 20; i++) {
-                createFlyingHeart();
-            }
-        });
-
-        function createFlyingHeart() {
-            const heart = document.createElement('span');
-            heart.classList.add('flying-heart');
-            heart.innerHTML = '❤️';
-            
-            const x = Math.random() * window.innerWidth;
-            const y = Math.random() * window.innerHeight;
-            
-            heart.style.left = `${x}px`;
-            heart.style.top = `${y}px`;
-
-            document.body.appendChild(heart);
-
-            heart.addEventListener('animationend', () => {
-                heart.remove();
-            });
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
